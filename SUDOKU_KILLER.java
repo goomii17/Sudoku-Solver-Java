@@ -3,6 +3,8 @@ package Aplicable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+//Import BufferedReader
+import java.io.BufferedReader;
 
 public class SUDOKU_KILLER {
 
@@ -10,21 +12,31 @@ public class SUDOKU_KILLER {
 
 		crono2 t = new crono2();
 
+		// String[] lineas = new String[9];
+
+		// lineas[0] = "300000004";
+		// lineas[1] = "000609000";
+		// lineas[2] = "006000900";
+		// lineas[3] = "080302060";
+		// lineas[4] = "000070000";
+		// lineas[5] = "010805070";
+		// lineas[6] = "007000800";
+		// lineas[7] = "000708000";
+		// lineas[8] = "900000007";
+
+		// Read lines from file
 		String[] lineas = new String[9];
-
-		lineas[0] = "300000004";
-		lineas[1] = "000609000";
-		lineas[2] = "006000900";
-		lineas[3] = "080302060";
-		lineas[4] = "000070000";
-		lineas[5] = "010805070";
-		lineas[6] = "007000800";
-		lineas[7] = "000708000";
-		lineas[8] = "900000007";
-		// Arguments: nSols, kight,diag,king,cons
-
-		// 0 para buscar todas las posibles
-		int numSoluciones = args.length > 0 ? Integer.parseInt(args[0]) : 0;
+		String path = "./sudoku.sdk";
+		try {
+			BufferedReader br = new BufferedReader(new java.io.FileReader(path));
+			for (int i = 0; i < 9; i++) {
+				lineas[i] = br.readLine();
+			}
+			br.close();
+		} catch (Exception e) {
+			System.out.println("Error Reading File: " + e.getMessage());
+		}
+		int numSoluciones = args.length > 0 ? Integer.parseInt(args[0]) : 1;
 
 		boolean knightsmoves = args.length > 1 ? Boolean.parseBoolean(args[1]) : false;
 
