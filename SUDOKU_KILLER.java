@@ -12,26 +12,27 @@ public class SUDOKU_KILLER {
 
 		String[] lineas = new String[9];
 
-		lineas[0] = "000000000";
-		lineas[1] = "000000000";
-		lineas[2] = "000000000";
-		lineas[3] = "000000000";
-		lineas[4] = "000000000"; // Miracle 1 (knight king and cons)
-		lineas[5] = "000000000";
-		lineas[6] = "000000000";
-		lineas[7] = "000000000";
-		lineas[8] = "000000000";
+		lineas[0] = "300000004";
+		lineas[1] = "000609000";
+		lineas[2] = "006000900";
+		lineas[3] = "080302060";
+		lineas[4] = "000070000";
+		lineas[5] = "010805070";
+		lineas[6] = "007000800";
+		lineas[7] = "000708000";
+		lineas[8] = "900000007";
+		// Arguments: nSols, kight,diag,king,cons
 
 		// 0 para buscar todas las posibles
-		int numSoluciones = 1;
+		int numSoluciones = args.length > 0 ? Integer.parseInt(args[0]) : 0;
 
-		boolean knightsmoves = false;
+		boolean knightsmoves = args.length > 1 ? Boolean.parseBoolean(args[1]) : false;
 
-		boolean diagonals = false;
+		boolean diagonals = args.length > 2 ? Boolean.parseBoolean(args[2]) : false;
 
-		boolean kingmoves = false;
+		boolean kingmoves = args.length > 3 ? Boolean.parseBoolean(args[3]) : false;
 
-		boolean consecutive = false;
+		boolean consecutive = args.length > 4 ? Boolean.parseBoolean(args[4]) : false;
 
 		if (sigo(lineas, knightsmoves, diagonals, kingmoves, consecutive)) {
 
